@@ -8,7 +8,7 @@ public abstract class ATMTransaction {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        JOptionPane.showMessageDialog(null, "WELCOME TO CBE AUTOMATED TELLER MACHINE");
+        JOptionPane.showMessageDialog(null, "WELCOME TO MINI AUTOMATED TELLER MACHINE");
         
         // PIN Verification: Loops until the correct PIN is entered
         int pin;
