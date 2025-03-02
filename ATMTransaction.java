@@ -10,7 +10,7 @@ public abstract class ATMTransaction {
         Scanner scanner = new Scanner(System.in);
         JOptionPane.showMessageDialog(null, "WELCOME TO CBE AUTOMATED TELLER MACHINE");
         
-        // PIN Verification
+        // PIN Verification: Loops until the correct PIN is entered
         int pin;
         do {
             pin = Integer.parseInt(JOptionPane.showInputDialog("PLEASE ENTER YOUR PIN NUMBER"));
@@ -22,6 +22,7 @@ public abstract class ATMTransaction {
         processATM(scanner);
     }
 
+    // Handles ATM menu and user choices
     private static void processATM(Scanner scanner) {
         int choice;
         do {
@@ -61,6 +62,7 @@ public abstract class ATMTransaction {
         } while (choice != 5);
     }
     
+    // Abstract method to be implemented by subclasses
     public abstract void execute();
 }
 
