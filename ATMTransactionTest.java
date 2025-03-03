@@ -16,7 +16,7 @@ public class ATMTransactionTest {
         transfer = new Transfer(); // Initialize transfer
 
         // Set initial balance for testing
-        balance.balance = 10000;
+        ATMTransaction.balance = 10000;
     }
 
     @Test
@@ -28,7 +28,7 @@ public class ATMTransactionTest {
     public void testDeposit() {
         deposit.balance = 10000; // Set initial balance
         deposit.depositAmount = 2000; // Mock deposit amount
-        deposit.deposit(); // Perform deposit
+        deposit.execute(); // Perform deposit
 
         assertEquals(12000, deposit.getBalance()); // Expected balance after deposit
     }
@@ -37,7 +37,7 @@ public class ATMTransactionTest {
     public void testWithdrawal() {
         withdraw.balance = 10000; // Set initial balance
         withdraw.withdrawAmount = 3000; // Mock withdrawal amount
-        withdraw.withdraw(); // Perform withdrawal
+        withdraw.execute(); // Perform withdrawal
 
         assertEquals(7000, withdraw.getBalance()); // Expected balance after withdrawal
     }
@@ -46,7 +46,7 @@ public class ATMTransactionTest {
     public void testWithdrawalInsufficientFunds() {
         withdraw.balance = 1000; // Set initial balance
         withdraw.withdrawAmount = 5000; // Mock withdrawal amount (exceeds balance)
-        withdraw.withdraw(); // Try withdrawal
+        withdraw.execute(); // Try withdrawal
 
         assertEquals(1000, withdraw.getBalance()); // Balance should remain unchanged
     }
@@ -55,7 +55,7 @@ public class ATMTransactionTest {
     public void testTransfer() {
         transfer.balance = 10000; // Set initial balance
         transfer.transferAmount = 2000; // Mock transfer amount
-        transfer.transfer(); // Perform transfer
+        transfer.execute(); // Perform transfer
 
         assertEquals(8000, transfer.getBalance()); // Expected balance after transfer
     }
@@ -64,7 +64,7 @@ public class ATMTransactionTest {
     public void testTransferInsufficientFunds() {
         transfer.balance = 1000; // Set initial balance
         transfer.transferAmount = 5000; // Mock transfer amount (exceeds balance)
-        transfer.transfer(); // Try transfer
+        transfer.execute(); // Try transfer
 
         assertEquals(1000, transfer.getBalance()); // Balance should remain unchanged
     }
