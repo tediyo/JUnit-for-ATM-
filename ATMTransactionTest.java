@@ -1,79 +1,71 @@
-//JUnit Test
-
-
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ATMTransactionTest {
-    private BALANCE balance;
-    private WITHDRAW withdraw;
+    private Balance balance;
+    private Withdraw withdraw;
     private Deposit deposit;
     private Transfer transfer;
 
     @Before
     public void setUp() {
-        balance = new BALANCE();  // Initialize balance check
-        withdraw = new WITHDRAW(); // Initialize withdrawal
+        balance = new Balance();  // Initialize balance check
+        withdraw = new Withdraw(); // Initialize withdrawal
         deposit = new Deposit();   // Initialize deposit
         transfer = new Transfer(); // Initialize transfer
 
         // Set initial balance for testing
-        balance.balance = 10000;
+        ATMTransaction.balance = 10000;
     }
 
     @Test
     public void testBalanceCheck() {
-        assertEquals(10000, balance.balancee()); // Check initial balance
+        assertEquals(10000, balance.getBalance()); // Check initial balance
     }
 
     @Test
     public void testDeposit() {
         deposit.balance = 10000; // Set initial balance
-        deposit.x = 2000; // Mock deposit amount
-        deposit.deposit(); // Perform deposit
+        deposit.depositAmount = 2000; // Mock deposit amount
+        deposit.execute(); // Perform deposit
 
-        assertEquals(12000, deposit.balance); // Expected balance after deposit
+        assertEquals(12000, deposit.getBalance()); // Expected balance after deposit
     }
 
     @Test
     public void testWithdrawal() {
         withdraw.balance = 10000; // Set initial balance
-        withdraw.withdraw = 3000; // Mock withdrawal amount
-        withdraw.withdrawal(); // Perform withdrawal
-        withdraw.balancee(); // Update balance
+        withdraw.withdrawAmount = 3000; // Mock withdrawal amount
+        withdraw.execute(); // Perform withdrawal
 
-        assertEquals(7000, withdraw.balance); // Expected balance after withdrawal
+        assertEquals(7000, withdraw.getBalance()); // Expected balance after withdrawal
     }
 
     @Test
     public void testWithdrawalInsufficientFunds() {
         withdraw.balance = 1000; // Set initial balance
-        withdraw.withdraw = 5000; // Mock withdrawal amount (exceeds balance)
-        withdraw.withdrawal(); // Try withdrawal
-        withdraw.balancee(); // Update balance
+        withdraw.withdrawAmount = 5000; // Mock withdrawal amount (exceeds balance)
+        withdraw.execute(); // Try withdrawal
 
-        assertEquals(1000, withdraw.balance); // Balance should remain unchanged
+        assertEquals(1000, withdraw.getBalance()); // Balance should remain unchanged
     }
 
     @Test
     public void testTransfer() {
         transfer.balance = 10000; // Set initial balance
-        transfer.n = 2000; // Mock transfer amount
-        transfer.transferr(); // Perform transfer
-        transfer.balancee(); // Update balance
+        transfer.transferAmount = 2000; // Mock transfer amount
+        transfer.execute(); // Perform transfer
 
-        assertEquals(8000, transfer.balance); // Expected balance after transfer
+        assertEquals(8000, transfer.getBalance()); // Expected balance after transfer
     }
 
     @Test
     public void testTransferInsufficientFunds() {
         transfer.balance = 1000; // Set initial balance
-        transfer.n = 5000; // Mock transfer amount (exceeds balance)
-        transfer.transferr(); // Try transfer
-        transfer.balancee(); // Update balance
+        transfer.transferAmount = 5000; // Mock transfer amount (exceeds balance)
+        transfer.execute(); // Try transfer
 
-        assertEquals(1000, transfer.balance); // Balance should remain unchanged
+        assertEquals(1000, transfer.getBalance()); // Balance should remain unchanged
     }
 }
-// 
