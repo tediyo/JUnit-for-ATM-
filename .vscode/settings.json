@@ -1,3 +1,10 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.sourcePaths": [
+        "lib"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\Thedr\\Desktop\\JunitATM\\lib\\junit-4.13.2.jar",
+        "c:\\Users\\Thedr\\Desktop\\JunitATM\\lib\\hamcrest-core-1.3.jar"
+    ]
 }
