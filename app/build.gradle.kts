@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+     
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
 
