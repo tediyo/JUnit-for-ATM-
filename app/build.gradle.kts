@@ -16,15 +16,22 @@ repositories {
 }
 
 dependencies {
-     
-    // Use JUnit Jupiter for testing.
-    testImplementation(libs.junit.jupiter)
+    // Use JUnit Platform Console for running tests
+    testImplementation("org.junit.platform:junit-platform-console-standalone:1.7.0")
+    
+    // Use JUnit Jupiter API for testing (JUnit 5)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    
+    // Runtime engine for running the JUnit tests
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    
+    // Optionally, use the JUnit Platform Launcher (for IDE support)
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.0")
 
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // This dependency is used by the application.
-    implementation(libs.guava)
+    // If you're using Google Guava (as per your example)
+    implementation("com.google.guava:guava:30.1-jre")
 }
+
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
