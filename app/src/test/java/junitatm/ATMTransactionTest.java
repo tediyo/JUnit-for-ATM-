@@ -1,3 +1,4 @@
+package junitatm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,3 +65,4 @@ public class ATMTransactionTest {
         assertEquals(500, ATMTransaction.balance);  // Balance should remain the same
     }
 }
+

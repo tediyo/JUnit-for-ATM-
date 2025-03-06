@@ -1,6 +1,13 @@
+package junitatm;
 import javax.swing.JOptionPane;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import junitatm.Balance;
+import junitatm.Deposit;
+import junitatm.Transfer;
+import junitatm.Withdraw;
+import junitatm.ATMTransaction;
+
 
 // Abstract class for ATM Transactions
 public abstract class ATMTransaction {
