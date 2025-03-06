@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: lib/junit-jupiter-api-5.7.0.jar lib/junit-platform-launcher-1.7.0.jar lib/junit-platform-engine-1.7.0.jar
